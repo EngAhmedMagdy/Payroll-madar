@@ -1,0 +1,72 @@
+﻿@model Payroll.Models.PayrollReport
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<script type="text/javascript">
+    function GetSelectedTextValue() {
+        var selected = document.getElementById("EmpId");
+        var selectedValueEmpId = selected.value;
+        var link = '@Url.Action("Create", "PayrollReports", new { id = "-1" })';
+        link = link.replace("-1", selectedValueEmpId);
+
+        window.location.href = link;
+
+    }
+</script>
+<h1>Create</h1>
+
+<h4>PayrollReport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmpId" class="control-label"></label>
+                <select asp-for="EmpId" class="form-control" asp-items="ViewBag.EmpId" onchange="GetSelectedTextValue()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AttendanceId" class="control-label"></label>
+                <select asp-for="AttendanceId" class="form-control" asp-items="ViewBag.AttendanceId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PayrollDate" class="control-label"></label>
+                <input asp-for="PayrollDate" class="form-control" />
+                <span asp-validation-for="PayrollDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="JobId" class="control-label"></label>
+                <select disabled asp-for="JobId" class="form-control" asp-items="ViewBag.JobId"></select>
+            </div>
+            <div class="form-group">
+                <select hidden asp-for="JobId" class="form-control" asp-items="ViewBag.JobId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalaryId" class="control-label"></label>
+                <select disabled asp-for="SalaryId" class="form-control" asp-items="ViewBag.SalaryId"></select>
+            </div>
+            <div class="form-group">
+                <select hidden asp-for="SalaryId" class="form-control" asp-items="ViewBag.SalaryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmount" class="control-label"></label>
+                <input readonly asp-for="TotalAmount" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

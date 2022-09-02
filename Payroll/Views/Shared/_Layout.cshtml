@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Payroll</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script type="text/javascript">
+
+        function changeFunc() {
+            var selectBox = document.getElementById("selectBox");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            
+
+    </script>
+    <style>
+        nav menuitem {
+            position: relative;
+            display: block;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+            nav menuitem > menu {
+                position: absolute;
+                pointer-events: none;
+            }
+
+        nav > menu {
+            display: flex;
+        }
+
+            nav > menu > menuitem {
+                pointer-events: all;
+                opacity: 1;
+            }
+
+        menu menuitem a {
+            white-space: nowrap;
+            display: block;
+        }
+
+        menuitem:hover > menu {
+            pointer-events: initial;
+        }
+
+            menuitem:hover > menu > menuitem,
+            menu:hover > menuitem {
+                opacity: 1;
+            }
+
+        nav > menu > menuitem menuitem menu {
+            transform: translateX(100%);
+            top: 0;
+            right: 0;
+        }
+        /* User Styles Below Not Required */
+        /* User Styles Below Not Required */
+        /* User Styles Below Not Required */
+
+        nav {
+            margin-top: 40px;
+            margin-left: 40px;
+        }
+
+            nav a {
+                background: #75F;
+                color: white;
+                min-width: 190px;
+                transition: background 0.5s, color 0.5s, transform 5s;
+                margin: 0px 2px 2px 0px;
+                padding: 20px 40px;
+                box-sizing: border-box;
+                border-radius: 3px;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+                position: relative;
+            }
+
+                nav a:hover:before {
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.2);
+                    width: 100%;
+                    height: 100%;
+                }
+
+            nav > menu > menuitem > a + menu:after {
+                content: '';
+                position: absolute;
+                border: 10px solid transparent;
+                border-top: 10px solid white;
+                left: 12px;
+                top: -40px;
+            }
+
+            nav menuitem > menu > menuitem > a + menu:after {
+                content: '';
+                position: absolute;
+                border: 10px solid transparent;
+                border-left: 10px solid white;
+                top: 20px;
+                left: -180px;
+                transition: opacity 0.6s, transform 0s;
+            }
+
+            nav > menu > menuitem > menu > menuitem {
+                transition: transform 0.6s, opacity 0.6s;
+                transform: translateY(150%);
+                opacity: 0;
+            }
+
+            nav > menu > menuitem:hover > menu > menuitem,
+            nav > menu > menuitem.hover > menu > menuitem {
+                transform: translateY(0%);
+                opacity: 1;
+            }
+
+        menuitem > menu > menuitem > menu > menuitem {
+            transition: transform 0.6s, opacity 0.6s;
+            transform: translateX(195px) translateY(0%);
+            opacity: 0;
+        }
+
+        menuitem > menu > menuitem:hover > menu > menuitem,
+        menuitem > menu > menuitem.hover > menu > menuitem {
+            transform: translateX(0) translateY(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <menu>
+                <menuitem id="reports Department">
+                    <a>ادارة التقارير</a>
+                    <menu>
+                        <menuitem><a asp-controller="Reports" asp-action="EmployeeReport">تقرير بالعاملين بالشركة</a></menuitem>
+                        <menuitem><a asp-controller="Reports" asp-action="SalaryBonusDiscountReport">تقرير مرتبات العاملين بالحوافز والخصومات</a></menuitem>
+                        <menuitem><a asp-controller="Reports" asp-action="AttendanceReport">تقرير بالحضور والانصراف</a></menuitem>
+
+                    </menu>
+                </menuitem>
+                <menuitem id="bonus Department">
+                    <a>ادارة الحوافز والخصومات</a>
+                    <menu>
+                        <menuitem><a asp-controller="Bonus" asp-action="Index">عرض جميع الحوافز والخصومات</a></menuitem>
+                        <menuitem><a asp-controller="Bonus" asp-action="Create">اضافة حافز او خصم</a></menuitem>
+                    </menu>
+                </menuitem>
+                <menuitem id="salary Department">
+                    <a>ادارة المرتبات</a>
+                    <menu>
+                        <menuitem><a asp-controller="Salaries" asp-action="Index">عرض جميع المرتبات</a></menuitem>
+                        <menuitem><a asp-controller="Salaries" asp-action="Create">اضافة مرتب</a></menuitem>
+                        <menuitem><a asp-controller="PayrollReports" asp-action="Index">جميع الرواتب المصروفة</a></menuitem>
+                        <menuitem><a asp-controller="PayrollReports" asp-action="Create">صرف مرتبات الموظفين</a></menuitem>
+                        
+                    </menu>
+                </menuitem>
+                <menuitem id="Job Department">
+                    <a>ادارة الحضور والانصارف</a>
+                    <menu>
+                        <menuitem><a asp-controller="Attendances" asp-action="Index">عرض كشف الحضور</a></menuitem>
+                        <menuitem><a asp-controller="Attendances" asp-action="Create">تسجيل حضور وانصارف وغياب</a></menuitem>
+                    </menu>
+                </menuitem>
+                <menuitem id="employee">
+                    <a>ادارة الموظفين</a>
+                    <menu>
+                        <menuitem><a asp-controller="Employees" asp-action="Index">عرض جميع الموظفين</a></menuitem>
+                        <menuitem><a asp-controller="Employees" asp-action="Create">اضافة موظف</a></menuitem>
+                    </menu>
+                </menuitem>
+                <menuitem id="Job Department">
+                    <a>ادارة الوظائف</a>
+                    <menu>
+                        <menuitem><a asp-controller="Jobs" asp-action="Index">عرض جميع الدرجات الوظيفية</a></menuitem>
+                        <menuitem><a asp-controller="Jobs" asp-action="Create">اضافة درجة وظيفية</a></menuitem>
+                    </menu>
+                </menuitem>
+                <menuitem id="Job Department">
+                    <a>ادارة الاقسام</a>
+                    <menu>
+                        <menuitem><a asp-controller="Departments" asp-action="Index">عرض جميع الاقسام</a></menuitem>
+                        <menuitem><a asp-controller="Departments" asp-action="Create">اضافة قسم جديد</a></menuitem>
+                    </menu>
+                </menuitem>
+
+            </menu>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Payroll - <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

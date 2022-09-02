@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Payroll.Models.Bonu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BonusDepNavigation.DepName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bouns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Annual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsentCase.DaysNumber)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BonusDepNavigation.DepName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bouns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Annual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbsentCase.DaysNumber)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BonusId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BonusId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BonusId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

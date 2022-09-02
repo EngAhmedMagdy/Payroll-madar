@@ -1,0 +1,11 @@
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\bin\Debug\RDLCDESIGN.exe.config
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\bin\Debug\RDLCDESIGN.exe
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\bin\Debug\RDLCDESIGN.pdb
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RDLCDESIGN.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RDLCDESIGN.Properties.Resources.resources
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RDLCDESIGN.csproj.GenerateResource.cache
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RdlCompile.cache
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RdlCompile.compiled
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RDLCDESIGN.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RDLCDESIGN.exe
+C:\Users\Lenovo\source\repos\Payroll\RDLCDESIGN\obj\Debug\RDLCDESIGN.pdb

@@ -1,0 +1,111 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>5b8cc223-65c1-4004-afcf-afaedc662f85</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\computer-laptop-coffee-programming-wallpaper-preview.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Report\AttendancesReport.rdlc" />
+    <None Remove="Report\EmployeeReport.rdlc" />
+    <None Remove="Report\SalaryBonusDiscountReport.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Report\SalaryBonusDiscountReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\AttendancesReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\EmployeeReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.17" />
+    <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Departments\Create.cshtml" />
+    <None Include="Views\Departments\Delete.cshtml" />
+    <None Include="Views\Departments\Details.cshtml" />
+    <None Include="Views\Departments\Edit.cshtml" />
+    <None Include="Views\Departments\Index.cshtml" />
+    <None Include="Views\Employees\Create.cshtml" />
+    <None Include="Views\Employees\Delete.cshtml" />
+    <None Include="Views\Employees\Details.cshtml" />
+    <None Include="Views\Employees\Edit.cshtml" />
+    <None Include="Views\Employees\Index.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Jobs\Create.cshtml" />
+    <None Include="Views\Jobs\Delete.cshtml" />
+    <None Include="Views\Jobs\Details.cshtml" />
+    <None Include="Views\Jobs\Edit.cshtml" />
+    <None Include="Views\Jobs\Index.cshtml" />
+    <None Include="Views\Salaries\Create.cshtml" />
+    <None Include="Views\Salaries\Delete.cshtml" />
+    <None Include="Views\Salaries\Details.cshtml" />
+    <None Include="Views\Salaries\Edit.cshtml" />
+    <None Include="Views\Salaries\Index.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\css\986045-geometry-cyberspace-digital-art-lines-abstract.jpg" />
+    <None Include="wwwroot\css\computer-laptop-coffee-programming-wallpaper-preview.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AttendancesReport.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AttendancesReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="PayrollDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PayrollDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="SalaryBonusDiscountReport.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SalaryBonusDiscountReport.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AttendancesReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AttendancesReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="PayrollDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PayrollDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="SalaryBonusDiscountReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalaryBonusDiscountReport.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
